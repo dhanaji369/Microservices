@@ -1,0 +1,16 @@
+services:
+  productservice:
+    build:
+      context: .
+      dockerfile: ProductService/Dockerfile
+    ports:
+      - "5000:80"
+
+  orderservice:
+    build:
+      context: .
+      dockerfile: OrderService/Dockerfile
+    ports:
+      - "5001:81"
+    depends_on:
+      - productservice
